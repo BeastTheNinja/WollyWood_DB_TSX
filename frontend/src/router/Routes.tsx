@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { HomeView } from "../pages/HomeView"
 import { Layout } from "../Layout/Layout"
+import { ContactView } from "../pages/ContactView"
 
 export const Routing = () => {
     return (
@@ -12,7 +13,7 @@ export const Routing = () => {
                         <Route index element={<HomeView />} />
                         <Route path="/about" element={<div>About Page</div>} />
                         <Route path="/posters" element={<div>Posters Page</div>} />
-                        <Route path="/contact" element={<div>Contact Page</div>} />
+                        <Route path="/contact" element={<ContactView />} />
                         <Route path="/login" element={<div>Login Page</div>} />
                     </Route>
                 </Routes>
