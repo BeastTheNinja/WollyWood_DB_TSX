@@ -4,34 +4,34 @@ export const Footer = () => {
 
 
     return (
-        <footer className="flex justify-between items-center p-4 divide-amber-500 border-t-2 border-[#D97852] relative m-5">
+        <footer className="flex justify-between items-center p-4 border-t border-[#D1B3A7] relative m-5">
             <div className="grid grid-cols-2 gap-20 relative">
                 <ul>
-                    <p>WALLYWOOD</p>
-                    <li>
+                    <p className="font-[TitilliumWeb] text-[#D97852] text-lg">WALLYWOOD</p>
+                    <li className="font-[OpenSans] text-sm">
                         Øster Uttrupvej 1
                     </li>
-                    <li>
+                    <li className="font-[OpenSans] text-sm">
                         9000 Aalborg
                     </li>
                 </ul>
                 <ul>
-                    <li>
+                    <li className="font-[OpenSans] text-sm">
                         CVR: 12345678
                     </li>
-                    <li>
+                    <li className="font-[OpenSans] text-sm">
                         MAIL: info@plakatshoppen.dk
                     </li>
-                    <li>
+                    <li className="font-[OpenSans] text-sm">
                         Mobil: +45 9812 3456
                     </li>
                 </ul>
             </div>
             <div className="flex gap-2 absolute right-4 top-1">
-                <FaTwitterSquare size={30} />
-                <FaFacebookSquare size={30} />
-                <FaInstagramSquare size={30} />
-                <FaPinterestSquare size={30} />
+                <FaTwitterSquare size={30} color="#CCCCCC" />
+                <FaFacebookSquare size={30} color="#CCCCCC" />
+                <FaInstagramSquare size={30} color="#CCCCCC" />
+                <FaPinterestSquare size={30} color="#CCCCCC" />
             </div>
         </footer>
     )
