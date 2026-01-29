@@ -20,7 +20,7 @@ export const Posters = () => {
             </div>
             
             <div className="flex ml-5 mr-5">
-                <aside className="w-25 border-r">
+                <aside className="w-60 border-r">
                     <SideNav selectedGenre={selectedGenre} onGenreSelect={setSelectedGenre} />
                 </aside>
                 
