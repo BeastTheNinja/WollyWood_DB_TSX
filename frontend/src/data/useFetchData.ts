@@ -1,24 +1,22 @@
 import { useEffect, useState } from "react";
-import type { Moviedata } from "../types/movieType";
 
-export const useFetchPosters = (limit: number = 2) => {
-    const [posters, setPosters] = useState<Moviedata[]>([]);
+export const useFetchPosters = <T,>(url: string) => {
+    const [data, setData] = useState<T[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        const fetchPosters = async () => {
+        const fetchData = async () => {
             try {
                 setLoading(true);
-                const url = `http://localhost:3000/posters?sort_key=random&limit=${limit}&attributes=id,name,description,image`;
                 const response = await fetch(url);
 
                 if (!response.ok) {
-                    throw new Error('Failed to fetch posters');
+                    throw new Error('Failed to fetch');
                 }
 
                 const data = await response.json();
-                setPosters(data);
+                setData(data);
             } catch (err) {
                 setError(err instanceof Error ? err.message : 'An error occurred');
             } finally {
@@ -26,8 +24,8 @@ export const useFetchPosters = (limit: number = 2) => {
             }
         };
 
-        fetchPosters();
-    }, [limit]);
+        fetchData();
+    }, [url]);
 
-    return { posters, loading, error };
+    return { data, loading, error };
 };

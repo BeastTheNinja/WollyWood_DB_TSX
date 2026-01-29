@@ -18,7 +18,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
                     {movie.name}
                 </h4>
                 <div className="text-[#524641] font-[OpenSans]">
-                    {parse(movie.description)}
+                  {movie.description && parse(movie.description)}
                 </div>
                 <div className="text-[#524641] font-[OpenSans] flex justify-start gap-2">
                     Genre: {movie.genres.map((genre) => (

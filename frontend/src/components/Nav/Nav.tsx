@@ -19,7 +19,7 @@ export const Nav = () => {
                         <NavLink
                             to={link.to}
                             className={({ isActive }) =>
-                                `text-[18px] font-normal font-inter uppercase ${isActive ? 'text-[#524641] font-semibold' : 'text-[#524641] hover:text-[#D97852]'}
+                                `text-[18px] font-normal font-inter uppercase ${isActive ? 'text-[#D97852] font-semibold' : 'text-[#524641] hover:text-[#D97852]'}
                                 }`
                             }
                             end={link.to === '/'}

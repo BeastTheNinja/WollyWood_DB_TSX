@@ -1,10 +1,11 @@
 import Hero from '.././assets/images/curtain.jpg';
 import { Title } from "../components/pages/HomeComponent/Title";
 import { MovieCard } from "../components/pages/HomeComponent/MovieCard";
-import { useFetchPosters } from "../data/useFetchPosters";
+import { useFetchPosters } from "../data/useFetchData";
+import type { Moviedata } from '../types/movieType';
 
 export const HomeView = () => {
-    const { posters, loading, error } = useFetchPosters(2);
+    const { data, loading, error } = useFetchPosters<Moviedata>(`http://localhost:3000/posters?sort_key=random&limit=2&attributes=id,name,description,image`);
 
     return (
         <>
@@ -15,7 +16,7 @@ export const HomeView = () => {
             <div className="ml-5 mr-5 grid grid-cols-2 gap-6">
                 {loading && <p className="text-[#524641] font-[OpenSans]">Indlæser...</p>}
                 {error && <p className="text-red-500 font-[OpenSans]">Fejl: {error}</p>}
-                {posters.map((poster) => (
+                {data && data.map((poster) => (
                     <MovieCard key={poster.id} movie={poster} />
                 ))}
             </div>

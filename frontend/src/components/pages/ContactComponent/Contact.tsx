@@ -54,62 +54,65 @@ export const ContactForm = () => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-slate-100 px-4 gap-6">
-            <form onSubmit={handleSubmit} className="w-full max-w-md bg-white shadow-lg rounded-xl p-6 flex flex-col gap-4">
-                <h2 className="text-2xl font-bold text-gray-800">Kontakt Os</h2>
+        <>
+            <h2 className="text-[#D97852] text-[32px] font-[TitilliumWeb] ml-5" >Kontakt os</h2>
 
-                {hasSubmitted && <p className="text-green-600 font-semibold">Formularen er sendt!</p>}
+            <div className="flex px-4 gap-6">
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">
+                    {hasSubmitted && <p className="text-green-600 font-semibold">Formularen er sendt!</p>}
 
-                <div>
-                    <label className="text-sm font-semibold text-gray-700">Fulde Navn</label>
-                    <input
-                        type="text"
-                        value={fullName}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setFullName(value);
-                            if (value.trim()) setNameError("");
-                        }}
-                        className="mt-1 w-full bg-white border border-gray-300 shadow-lg px-3 py-2"
-                    />
-                    {nameError && <p className="text-red-600 text-sm">{nameError}</p>}
-                </div>
+                    <div className="flex flex-col gap-1">
+                        <label className="font-semibold">
+                            Fulde navn: <span className="text-red-600">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            value={fullName}
+                            onChange={(e) => setFullName(e.target.value)}
+                            className="bg-white border border-gray-300 px-3 py-2"
+                        />
+                        {nameError && <p className="text-red-600">{nameError}</p>}
+                    </div>
 
-                <div>
-                    <label className="text-sm font-semibold text-gray-700">Email</label>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setEmail(value);
-                            if (value.trim() && new RegExp(emailPattern).test(value)) setEmailError("");
-                        }}
-                        className="mt-1 w-full bg-white border border-gray-300 shadow-lg px-3 py-2"
-                    />
-                    {emailError && <p className="text-red-600 text-sm">{emailError}</p>}
-                </div>
-                <div>
-                    <label className="text-sm font-semibold text-gray-700">Kommentar</label>
-                    <textarea
-                        value={message}
-                        onChange={(e) => {
-                            const value = e.target.value;
-                            setMessage(value);
-                            if (value.trim()) setMessageError("");
-                        }}
-                        className="mt-1 w-full bg-white border border-gray-300 shadow-lg px-3 py-2"
-                        rows={4}
-                    />
-                    {messageError && <p className="text-red-600 text-sm">{messageError}</p>}
-                </div>
+                    <div className="flex flex-col gap-1">
+                        <label className="font-semibold">
+                            Email: <span className="text-red-600">*</span>
+                        </label>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="bg-white border border-gray-300 px-3 py-2"
+                        />
+                        {emailError && <p className="text-red-600">{emailError}</p>}
+                    </div>
 
-                <div className="flex gap-3">
-                    <button type="submit" className="flex-1 rounded-lg bg-blue-600 text-white py-2 font-semibold hover:bg-blue-700 transition">
+                    <div className="flex flex-col gap-1">
+                        <label className="font-semibold">
+                            Besked: <span className="text-red-600">*</span>
+                        </label>
+                        <textarea
+                            value={message}
+                            onChange={(e) => setMessage(e.target.value)}
+                            className="
+                            bg-white border 
+                            border-gray-300 
+                            px-3 
+                            py-2
+                            h-32
+                            w-full
+                            resize-none"/>
+
+                        {messageError && <p className="text-red-600">{messageError}</p>}
+
+                    </div>
+
+                    <button type="submit" className="bg-[#D1B3A7] border border-[#524641] px-4 py-2 w-fit self-start">
                         Send
                     </button>
-                </div>
-            </form>
-        </div>
+
+                </form>
+            </div>
+        </>
     );
 };
