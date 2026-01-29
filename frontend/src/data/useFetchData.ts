@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const useFetchPosters = <T,>(url: string) => {
+export const useFetchData = <T,>(url: string) => {
     const [data, setData] = useState<T[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);

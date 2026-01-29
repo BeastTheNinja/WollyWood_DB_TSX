@@ -55,7 +55,6 @@ export const ContactForm = () => {
 
     return (
         <>
-            <h2 className="text-[#D97852] text-[32px] font-[TitilliumWeb] ml-5" >Kontakt os</h2>
 
             <div className="flex px-4 gap-6">
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full max-w-md">

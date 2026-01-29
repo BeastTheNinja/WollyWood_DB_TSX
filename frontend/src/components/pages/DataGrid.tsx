@@ -1,4 +1,4 @@
-import { useFetchPosters } from "../../data/useFetchData";
+import { useFetchData } from "../../data/useFetchData";
 import type { Moviedata } from "../../types/movieType";
 import { MovieCard } from "./HomeComponent/MovieCard";
 
@@ -8,7 +8,7 @@ interface DataGridProps {
 }
 
 export const DataGrid = ({ url, title }: DataGridProps) => {
-    const { data, loading, error } = useFetchPosters<Moviedata>(url);
+    const { data, loading, error } = useFetchData<Moviedata>(url);
 
     return (
         <>

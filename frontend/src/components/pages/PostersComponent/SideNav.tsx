@@ -1,5 +1,4 @@
-
-import { useFetchPosters } from "../../../data/useFetchData"
+import { useFetchData } from "../../../data/useFetchData"
 import type { Genre } from "../../../types/movieType"
 
 interface SideNavProps {
@@ -8,7 +7,7 @@ interface SideNavProps {
 }
 
 export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
-    const { data: genres, loading, error } = useFetchPosters<Genre>(`http://localhost:3000/genres`);
+    const { data: genres, loading, error } = useFetchData<Genre>(`http://localhost:3000/genres`);
 
     return (
         <>
@@ -16,7 +15,7 @@ export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
                 <h3>Filtre</h3>
                 <p>Genre</p>
 
-                <button onClick={() => onGenreSelect(null)}>Alle</button>
+                <button onClick={() => onGenreSelect(null)}>Nulstil</button>
 
                 {loading && <p>Indlæser...</p>}
                 {error && <p>Fejl: {error}</p>}
