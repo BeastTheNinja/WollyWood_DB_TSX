@@ -5,7 +5,7 @@ interface MovieCardProps {
     movie: Moviedata;
 }
 
-export const MovieCard = ({ movie }: MovieCardProps) => {
+export const MovieCardHome = ({ movie }: MovieCardProps) => {
     return (
         <div className="flex gap-4">
             <img
@@ -25,7 +25,7 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
                         <p key={genre.id}>{genre.title}</p>
                     ))}
                 </div>
-                <button className="bg-[#D1B3A7] font-[OpenSans] text-[#524641] px-4 py-2 rounded mt-auto w-fit">
+                <button className="bg-[#D1B3A7] font-[OpenSans] font-bold text-[#524641] border border-[#524641] px-4 py-2 rounded mt-auto w-fit">
                     Læs mere
                 </button>
             </div>

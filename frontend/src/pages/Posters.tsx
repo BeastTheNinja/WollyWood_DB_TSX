@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { DataGrid } from "../components/pages/DataGrid"
+import { PostersGrid } from "../components/pages/PostersComponent/PostersGrid";
 import { SideNav } from "../components/pages/PostersComponent/SideNav";
+import { useFetchData } from "../data/useFetchData";
+import type { Moviedata } from "../types/movieType";
 
 export const Posters = () => {
     const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
 
     const baseUrl = selectedGenre 
-        ? `http://localhost:3000/posters/list_by_genre/${selectedGenre}?sort_key=random&limit=9&attributes=id,name,image`
-        : `http://localhost:3000/posters?sort_key=random&limit=9&attributes=id,name,image`;
+        ? `http://localhost:3000/posters/list_by_genre/${selectedGenre}?sort_key=random&limit=9&attributes=id,name,image,price`
+        : `http://localhost:3000/posters?sort_key=random&limit=9&attributes=id,name,image,price`;
+
+    const { data, loading, error } = useFetchData<Moviedata>(baseUrl);
 
     return (
         <>
@@ -21,7 +25,7 @@ export const Posters = () => {
                 </aside>
                 
                 <main className="flex-1">
-                    <DataGrid url={baseUrl} />
+                    <PostersGrid data={data} loading={loading} error={error} />
                 </main>
             </div>
         </>

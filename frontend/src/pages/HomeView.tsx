@@ -1,6 +1,6 @@
 import Hero from '.././assets/images/curtain.jpg';
 import { Title } from "../components/pages/HomeComponent/Title";
-import { MovieCard } from "../components/pages/HomeComponent/MovieCard";
+import { MovieCardHome } from "../components/pages/HomeComponent/MovieCardHome";
 import { useFetchData } from "../data/useFetchData";
 import type { Moviedata } from '../types/movieType';
 
@@ -17,7 +17,7 @@ export const HomeView = () => {
                 {loading && <p className="text-[#524641] font-[OpenSans]">Indlæser...</p>}
                 {error && <p className="text-red-500 font-[OpenSans]">Fejl: {error}</p>}
                 {data && data.map((poster) => (
-                    <MovieCard key={poster.id} movie={poster} />
+                    <MovieCardHome key={poster.id} movie={poster} />
                 ))}
             </div>
         </>
