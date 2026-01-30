@@ -4,10 +4,10 @@ import { NavLink } from "react-router"
 export const Nav = () => {
 
     const links = [
-        { label: 'Home', to: '/' },
-        { label: 'About', to: '/about' },
-        { label: 'Posters', to: '/posters' },
-        { label: 'Contact', to: '/contact' },
+        { label: 'Hjem', to: '/' },
+        { label: 'Plakater', to: '/Plakater' },
+        { label: 'Om os', to: '/om-os' },
+        { label: 'Kontakt', to: '/kontakt' },
         { label: 'Login', to: '/login' },
     ]
 

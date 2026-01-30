@@ -11,7 +11,7 @@ export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
 
     return (
         <div className="pr-6 py-4">
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col">
                 <div>
                     <h3 className="font-bold text-lg">Filtre</h3>
                     <p className=" text-[#524641] m-3">Genre</p>
@@ -27,17 +27,13 @@ export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
                 {loading && <p>Indlæser...</p>}
                 {error && <p>Fejl: {error}</p>}
                 
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col ">
                     {genres && genres
-                        .filter((genre) => {
-                            const slug = genre.title.toLowerCase();
-                            return slug !== 'danske film' && slug !== 'børne - familiefilm' && slug !== 'film programmer' && slug !== 'marvel - dc comics' && slug !== 'store filmplakater' && slug !== 'krimi - thriller' && slug !== 'agent 007' && slug !== 'walt disney - pixar' && slug !== 'science fiction';
-                        })
                         .map((genre) => (
                             <button
                                 key={genre.id}
-                                onClick={() => onGenreSelect(genre.title.toLowerCase())}
-                                className={`text-left px-3 py-2 rounded ${selectedGenre === genre.title.toLowerCase() ? "active text-[#5C1F06]" : "hover:bg-gray-200"}`}
+                                onClick={() => onGenreSelect(genre.slug.toLowerCase())}
+                                className={`text-left px-3 py-2 rounded ${selectedGenre === genre.slug.toLowerCase() ? "active text-[#5C1F06]" : "hover:bg-gray-200"}`}
                             >
                                 {genre.title}
                             </button>

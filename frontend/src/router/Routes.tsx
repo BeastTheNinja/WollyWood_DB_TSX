@@ -12,9 +12,9 @@ export const Routing = () => {
                 <Routes>
                     <Route element={<Layout />}>
                         <Route index element={<HomeView />} />
-                        <Route path="/about" element={<div>About Page</div>} />
-                        <Route path="/posters" element={<Posters />} />
-                        <Route path="/contact" element={<ContactView />} />
+                        <Route path="/Om-os" element={<div>About Page</div>} />
+                        <Route path="/Plakater" element={<Posters />} />
+                        <Route path="/Kontakt" element={<ContactView />} />
                         <Route path="/login" element={<div>Login Page</div>} />
                     </Route>
                 </Routes>

@@ -1,20 +1,24 @@
 export interface Moviedata {
-    id:          number;
-    name:        string;
+    id: number;
+    name: string;
     description: string;
-    image:       string;
-    genres:      Genre[];
+    image: string;
+    price: number;
+    sortOption?: string;
+    genres: Genre[];
 }
 
 export interface Genre {
-    id:               number;
-    title:            string;
-    slug:             string;
+    id: number;
+    title: string;
+    slug: string;
     poster_genre_rel: PosterGenreRel;
 }
 
 export interface PosterGenreRel {
-    id:        number;
+    id: number;
     poster_id: number;
-    genre_id:  number;
+    genre_id: number;
 }
+
+export type SortOption = "price_asc" | "price_desc";
