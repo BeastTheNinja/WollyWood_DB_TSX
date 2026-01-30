@@ -3,6 +3,7 @@ import { HomeView } from "../pages/HomeView"
 import { Layout } from "../Layout/Layout"
 import { ContactView } from "../pages/ContactView"
 import { Posters } from "../pages/Posters"
+import { AboutUsView } from "../pages/AboutUsView"
 
 export const Routing = () => {
     return (
@@ -12,7 +13,7 @@ export const Routing = () => {
                 <Routes>
                     <Route element={<Layout />}>
                         <Route index element={<HomeView />} />
-                        <Route path="/Om-os" element={<div>About Page</div>} />
+                        <Route path="/Om-os" element={<AboutUsView />} />
                         <Route path="/Plakater" element={<Posters />} />
                         <Route path="/Kontakt" element={<ContactView />} />
                         <Route path="/login" element={<div>Login Page</div>} />
