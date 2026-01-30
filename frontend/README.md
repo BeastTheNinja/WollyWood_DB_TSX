@@ -1,73 +1,135 @@
-# React + TypeScript + Vite
+# WollyWood Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React + TypeScript + Vite frontend til WollyWood plakat-webshop.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18** med TypeScript
+- **Vite** som build tool og dev server
+- **Tailwind CSS** til styling
+- **React Router** til client-side routing
 
-## React Compiler
+## Funktioner
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Plakat Browse
 
-## Expanding the ESLint configuration
+- Grid-layout med responsive design
+- Lazy loading af data via custom `useFetchData` hook
+- Loading states og error handling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Filtrering & Sortering
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Genre-filter via sidebar navigation
+- Pris-sortering (stigende/faldende)
+- Random sortering som default
+- Dynamisk URL query params
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Komponenter
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+#### Pages
+
+- `Posters.tsx` - Hovedside med grid, filter og sortering
+- `PosterDetails.tsx` - Detaljevisning af enkelt plakat
+
+#### Components
+
+- `PostersGrid` - Grid layout til plakater
+- `SideNav` - Genre filter sidebar
+- `Dropdown` - Sorterings dropdown
+- `Header` / `Footer` - Layout komponenter
+
+## Scripts
+
+```bash
+# Development server (port 5173)
+npm run dev
+
+# Production build
+npm run build
+
+# Preview production build
+npm run preview
+
+# Lint kode
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Projekt Struktur
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+├── components/
+│   ├── layout/          # Header, Footer, Navigation
+│   └── pages/           # Side-specifikke komponenter
+│       └── PostersComponent/
+│           ├── PostersGrid.tsx
+│           ├── SideNav.tsx
+│           └── Dropdown.tsx
+├── pages/               # Route komponenter
+│   ├── Posters.tsx
+│   └── PosterDetails.tsx
+├── types/               # TypeScript interfaces
+│   └── movieType.d.ts
+├── data/                # Data fetching
+│   └── useFetchData.ts
+└── App.tsx              # Root komponent med routing
+```
+
+## TypeScript Types
+
+### Moviedata
+
+```typescript
+interface Moviedata {
+    id: number;
+    name: string;
+    description: string;
+    image: string;
+    price: number;
+    genres: Genre[];
+}
+```
+
+### SortOption
+
+```typescript
+type SortOption = "price_asc" | "price_desc";
+```
+
+## API Integration
+
+Frontend kommunikerer med backend API på `http://localhost:3000`:
+
+```typescript
+// Eksempel: Hent plakater med sortering
+const params = new URLSearchParams({
+    limit: "9",
+    attributes: "id,name,image,price",
+    sort_key: "price",
+    sort_direction: "asc"
+});
+
+const url = `http://localhost:3000/posters?${params}`;
+```
+
+## Styling
+
+Projektet bruger Tailwind CSS med custom configuration:
+
+- Primary color: `#D97852` (orange)
+- Responsive breakpoints
+- Custom spacing og border radius
+
+## Browser Support
+
+- Chrome/Edge (seneste 2 versioner)
+- Firefox (seneste 2 versioner)
+- Safari (seneste 2 versioner)
+
+## Vite Configuration
+
+Template bruger:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) med Babel til Fast Refresh
+- Hot Module Replacement (HMR)
+- ESLint integration

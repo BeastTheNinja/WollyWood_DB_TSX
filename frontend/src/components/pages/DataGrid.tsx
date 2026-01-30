@@ -1,6 +1,6 @@
 import { useFetchData } from "../../data/useFetchData";
 import type { Moviedata } from "../../types/movieType";
-import { MovieCard } from "./HomeComponent/MovieCard";
+import { MovieCard } from "./PostersComponent/MovieCard";
 
 interface DataGridProps {
     url: string;
