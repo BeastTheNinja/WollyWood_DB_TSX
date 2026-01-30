@@ -10,7 +10,7 @@ export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
     const { data: genres, loading, error } = useFetchData<Genre>(`http://localhost:3000/genre`);
 
     return (
-        <div className="pr-6 py-4">
+        <div className="flex flex-col mb-5">
             <div className="flex flex-col">
                 <div>
                     <h3 className="font-bold text-lg">Filtre</h3>
