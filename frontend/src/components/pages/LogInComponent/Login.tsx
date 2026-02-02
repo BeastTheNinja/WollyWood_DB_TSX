@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import type { FormEvent } from "react";
 import { AuthContext } from "../../context/AuthContext";
+import { DarkModeContext } from '../../context/darkmodeContext'
 
 export const LogIn = () => {
     // State for error messages and authentication context
@@ -25,7 +26,13 @@ export const LogIn = () => {
 
         // POST credentials to backend and handle response
         fetch(url, { method: 'POST', body: body })
-            .then((res) => res.json())
+            .then(async (res) => {
+                if (!res.ok) {
+                    const msg = await res.text()
+                    throw new Error(msg)
+                }
+                return res.json()
+            })
             .then((data) => {
                 setUserData(data)
                 setError('')
@@ -43,7 +50,7 @@ export const LogIn = () => {
             {/* Welcome message displayed when user is logged in */}
             <div className={`px-4 p-5 ${isDarkMode ? 'text-white' : 'text-black'}`}>
                 {userData && (
-                    <b className="font-semibold font-[OpenSans] text-[#524641]">
+                    <b className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                         Velkommen {userData.user.firstname} {userData.user.lastname}
                     </b>
                 )}
@@ -51,36 +58,36 @@ export const LogIn = () => {
 
             {/* Login form */}
             <div className={`flex px-4 gap-6 ${isDarkMode ? 'text-white' : 'text-black'}`}>
-                {/* Display error message if login fails */}
-                {error && <b className="ml-5 font-normal ">{error}</b>}
                 <form className="flex flex-col gap-4 w-full max-w-md" onSubmit={(e) => postLogin(e)}>
+                {/* Display error message if login fails */}
+                {error && <b className={`font-normal ${isDarkMode ? 'text-red-300' : ''}`}>{error}</b>}
                     {/* Username input field */}
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold font-[OpenSans] text-[#524641]">
+                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                             Brugernavn: <span className="text-red-600">*</span>
                         </label>
                         <input
                             type="text"
-                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
+                            className={`shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
                             name="email"
                         />
                     </div>
 
                     {/* Password input field */}
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold font-[OpenSans] text-[#524641]">
+                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                             Password: <span className="text-red-600">*</span>
                         </label>
                         <input
                             type="password"
                             autoComplete="auto"
-                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
+                            className={`shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
                             name="password"
                         />
                     </div>
 
                     {/* Submit button */}
-                    <button type="submit" className="bg-[#D1B3A7] border border-[#524641] rounded w-18.75 h-8.5 flex items-center justify-center self-star text-[#524641] font-semibold font-[OpenSans]">
+                    <button type="submit" className={`border rounded w-18.75 h-8.5 flex items-center justify-center self-star font-semibold font-[OpenSans] ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
                         Send
                     </button>
 

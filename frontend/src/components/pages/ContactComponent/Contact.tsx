@@ -77,41 +77,41 @@ export const ContactForm = () => {
 
                     {/* Full name input with validation */}
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold font-[OpenSans] text-[#524641]">
+                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                             Fulde navn: <span className="text-red-600">*</span>
                         </label>
                         <input
                             type="text"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
-                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
+                            className={`shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
                         />
                         {nameError && <p className="text-red-600">{nameError}</p>}
                     </div>
 
                     {/* Email input with validation */}
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold font-[OpenSans] text-[#524641]">
+                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                             Email: <span className="text-red-600">*</span>
                         </label>
                         <input
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
+                            className={`shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
                         />
                         {emailError && <p className="text-red-600">{emailError}</p>}
                     </div>
 
                     {/* Message textarea with validation */}
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold font-[OpenSans] text-[#524641]">
+                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                             Besked: <span className="text-red-600">*</span>
                         </label>
                         <textarea
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
-                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 h-32 w-full resize-none focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
+                            className={`shadow-inner px-3 py-2 h-32 w-full resize-none focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
                         />
 
                         {messageError && <p className="text-red-600">{messageError}</p>}
@@ -119,7 +119,7 @@ export const ContactForm = () => {
                     </div>
 
                     {/* Submit button */}
-                    <button type="submit" className="bg-[#D1B3A7] border border-[#524641] rounded w-18.75 h-8.5 flex items-center justify-center self-start text-[#524641] font-semibold font-[OpenSans]">
+                    <button type="submit" className={`border rounded w-18.75 h-8.5 flex items-center justify-center self-start font-semibold font-[OpenSans] ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
                         Send
                     </button>
 
