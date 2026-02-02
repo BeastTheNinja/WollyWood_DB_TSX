@@ -6,12 +6,13 @@ import { Posters } from "../pages/PostersView"
 import { AboutUsView } from "../pages/AboutUsView"
 import { LoginView } from "../pages/LogInView"
 
+// Main routing component - defines all application routes
 export const Routing = () => {
     return (
-        // Define your routes here
         <>
             <BrowserRouter>
                 <Routes>
+                    {/* Layout route wraps all child routes with header/footer */}
                     <Route element={<Layout />}>
                         <Route index element={<HomeView />} />
                         <Route path="/Om-os" element={<AboutUsView />} />

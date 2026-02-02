@@ -1,13 +1,18 @@
+import { useContext } from 'react'
+import { DarkModeContext } from './context/darkmodeContext'
+
 interface TitleProps {
     title: string;
 }
 
-
 export const Title = ({ title }: TitleProps) => {
+    // Get dark mode state from context
+    const darkModeContext = useContext(DarkModeContext)
+    const isDarkMode = darkModeContext?.isDarkMode ?? false
 
     return (
         <>
-            <h1 className="text-[#D97852] text-[32px] font-[TitilliumWeb] ml-5 font-bold text-left">{title}</h1>
+            <h1 className={`text-[32px] font-[TitilliumWeb] ml-5 font-bold text-left ${isDarkMode ? 'text-[#D97852]' : 'text-[#D97852]'}`}>{title}</h1>
         </>
     )
 }

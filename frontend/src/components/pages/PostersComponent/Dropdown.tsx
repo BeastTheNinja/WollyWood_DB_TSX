@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import type { SortOption } from "../../../types/movieType";
+import { DarkModeContext } from '../../context/darkmodeContext'
 
 type DropdownProps = {
     onSelectSort: (value: SortOption | null) => void;
@@ -8,6 +9,10 @@ type DropdownProps = {
 export const Dropdown = ({ onSelectSort }: DropdownProps) => {
     const [selectedSort, setSelectedSort] = useState<SortOption | null>(null);
     const [isOpen, setIsOpen] = useState(false);
+    
+    // Get dark mode state from context
+    const darkModeContext = useContext(DarkModeContext)
+    const isDarkMode = darkModeContext?.isDarkMode ?? false
 
     const dropdownLinks: { name: string; value: SortOption }[] = [
         { name: "Pris: Lav til Høj", value: "price_asc" },
@@ -36,18 +41,19 @@ export const Dropdown = ({ onSelectSort }: DropdownProps) => {
     return (
         <>
             <div className=" relative inline-block text-left mr-5 mb-4 mt-2">
-                <button onClick={toggleDropdown} className="rounded bg-[#FFFFFF] border border-[#CCCCCC] text-xl w-48 h-auto px-4 py-2 text-left">
+                <button onClick={toggleDropdown} className={`rounded border text-xl w-48 h-auto px-4 py-2 text-left ${isDarkMode ? 'bg-gray-800 border-gray-600 text-gray-200' : 'bg-[#FFFFFF] border-[#CCCCCC]'}`}>
                     {getButtonText()}
                 </button>
                 {isOpen && (
-                    <ul className="absolute top-9  bg-white rounded border border-gray-300 mt-2 w-48 shadow-lg z-10">
+                    <ul className={`absolute top-9 rounded border mt-2 w-48 shadow-lg z-10 ${isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-gray-300'}`}>
                         {dropdownLinks.map((link) => (
                             <li key={link.name}>
                                 <button
                                     type="button"
                                     onClick={() => handleSelect(link.value)}
-                                    className="block w-full text-left px-4 py-2 hover:bg-gray-200"
+                                    className={`block w-full text-left px-4 py-2 ${isDarkMode ? 'hover:bg-gray-700 text-gray-200' : 'hover:bg-gray-200'}`}
                                 >
+                                
                                     {link.name}
                                 </button>
                             </li>

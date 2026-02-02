@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react'
 import { AuthContext } from './AuthContext'
 import type { UserData } from '../../types/userType'
 
-// TS - interface til Provideren
+// TypeScript interface for provider props
 interface AuthContextProviderInterface {
     children: React.ReactNode
 }
 
-// Her oprettes AuthContextProvider
-// Dette er den provider vi wrapper vores komponenter i, som skal have adgang til
-// alle de værdier/states vi vil bruge på tværs af appen.
+// Authentication Context Provider
+// Wraps components that need access to user authentication state
+// Handles localStorage persistence of user data
 export const AuthContextProvider = ({ children }: AuthContextProviderInterface) => {
     const [userData, setUserData] = useState<UserData | null>(null)
 
-    // et useEffect hook der kører når komponentet mounter (første load).
-    // Tjekker om vi har gemt userData i localStorage, parser den og gemmer den i userData staten
+    // On component mount, check localStorage for existing user session
+    // Parse and restore user data if it exists
     useEffect(() => {
         function getLocalUserState() {
             if (localStorage.getItem('userData')) {
@@ -25,11 +25,12 @@ export const AuthContextProvider = ({ children }: AuthContextProviderInterface) 
         getLocalUserState()
     }, [])
 
-    // Tjekker om userData er noget og gemmer dem i localStorage
+    // Save user data to localStorage whenever it changes
+    // Enables persistent sessions across page refreshes
     useEffect(() => {
         if (userData !== null) localStorage.setItem('userData', JSON.stringify(userData))
     }, [userData])
 
-    // Returner AuthContext med alle de values vi vil bruge rundt om i appen
+    // Provide authentication state and setter to child components
     return <AuthContext.Provider value={{ userData, setUserData }}>{children}</AuthContext.Provider>
 }

@@ -1,12 +1,18 @@
 import type { Moviedata } from '../../../types/movieType';
+import { useContext } from 'react'
+import { DarkModeContext } from '../../context/darkmodeContext'
 
 interface MovieCardProps {
     movie: Moviedata;
 }
 
 export const MovieCard = ({ movie }: MovieCardProps) => {
+    // Get dark mode state from context
+    const darkModeContext = useContext(DarkModeContext)
+    const isDarkMode = darkModeContext?.isDarkMode ?? false
+
     return (
-        <div className="flex flex-col gap-2 h-full">
+        <div className={`flex flex-col gap-2 h-full ${isDarkMode ? 'bg-gray-800' : ''}`}>
             <div className="w-full h-80 overflow-hidden">
                 <img
                     className="w-full h-full object-cover"
@@ -15,13 +21,13 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
                 />
             </div>
             <div className="flex flex-col gap-2 flex-1">
-                <h4 className="font-bold text-[#524641] text-lg font-[OpenSans] text-center">
+                <h4 className={`font-bold text-lg font-[OpenSans] text-center ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
                     {movie.name}
                 </h4>
-                <p className="text-[#524641] font-[OpenSans] text-lg font-bold text-center">
+                <p className={`font-[OpenSans] text-lg font-bold text-center ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>
                     {movie.price}kr
                 </p>
-                <button className="bg-[#D1B3A7] font-[OpenSans] text-[#524641] border border-[#524641] px-4 py-2 rounded mt-auto w-fit self-center">
+                <button className={`font-[OpenSans] border px-4 py-2 rounded mt-auto w-fit self-center ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
                     Læg i kurv
                 </button>
             </div>

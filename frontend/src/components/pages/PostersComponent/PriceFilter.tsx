@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { DarkModeContext } from '../../context/darkmodeContext'
 
 type PriceFilterProps = {
     onPriceFilter: (range: { min: number; max: number }) => void;
@@ -7,6 +8,10 @@ type PriceFilterProps = {
 export const PriceFilter = ({ onPriceFilter }: PriceFilterProps) => {
     const [minPrice, setMinPrice] = useState<string>("");
     const [maxPrice, setMaxPrice] = useState<string>("");
+    
+    // Get dark mode state from context
+    const darkModeContext = useContext(DarkModeContext)
+    const isDarkMode = darkModeContext?.isDarkMode ?? false
 
     const handleFilter = () => {
         onPriceFilter({
@@ -23,29 +28,29 @@ export const PriceFilter = ({ onPriceFilter }: PriceFilterProps) => {
     return (
         <>
 
-            <h3 className="font[OpenSans + font-semibold] pb-5">Prisfilter</h3>
+            <h3 className={`font[OpenSans + font-semibold] pb-5 ${isDarkMode ? 'text-gray-200' : ''}`}>Prisfilter</h3>
             <div className="flex gap-4 items-center">
                 <input
                     type="number"
                     value={minPrice}
                     onChange={(e) => setMinPrice(e.target.value)}
                     placeholder="Fra"
-                    className="border border-[#A68E85] px-3 py-2 rounded w-20 "
+                    className={`border px-3 py-2 rounded w-20 ${isDarkMode ? 'bg-gray-800 border-gray-600 text-gray-200' : 'border-[#A68E85]'}`}
                 />
-                <span>-</span>
+                <span className={isDarkMode ? 'text-gray-300' : ''}>-</span>
                 <input
                     type="number"
                     value={maxPrice}
                     onChange={(e) => setMaxPrice(e.target.value)}
                     placeholder="Til"
-                    className="border border-[#A68E85] px-3 py-2 rounded w-20 "
+                    className={`border px-3 py-2 rounded w-20 ${isDarkMode ? 'bg-gray-800 border-gray-600 text-gray-200' : 'border-[#A68E85]'}`}
                 />
-                <p className="text-[#524641] font-[OpenSans + text-sm + font-normal]">kr</p>
+                <p className={`font-[OpenSans + text-sm + font-normal] ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>kr</p>
             </div>
             <div className="flex gap-10">
                 <button
                     onClick={handleFilter}
-                    className="bg-[#D97852] text-white rounded w-20 h-10  mt-4">
+                    className={`rounded w-20 h-10 mt-4 ${isDarkMode ? 'bg-[#D97852] text-white' : 'bg-[#D97852] text-white'}`}>
                     Filter
                 </button>
                 <button onClick={handleReset} className="bg-[#D97852] text-white rounded w-20 h-10  mt-4">
