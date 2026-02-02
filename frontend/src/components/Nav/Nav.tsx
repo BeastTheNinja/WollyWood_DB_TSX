@@ -45,7 +45,7 @@ export const Nav = () => {
     }
 
     return (
-        <nav>
+        <nav className={` ${isDarkMode ? 'dark' : ''}`}>
             <ul className="flex gap-16">
                 {links.map((link, index) => {
                     switch (link.type) {
@@ -55,7 +55,11 @@ export const Nav = () => {
                                     <NavLink
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `text-[18px] font-normal font-inter uppercase ${isActive ? "text-[#D97852] font-semibold" : "text-[#524641] hover:text-[#D97852]"}`
+                                            `text-[18px] font-normal font-inter uppercase ${
+                                                isActive
+                                                    ? "text-[#D97852] font-semibold"
+                                                    : "text-[#524641] hover:text-[#D97852] dark:text-gray-200 dark:hover:text-[#D97852]"
+                                            }`
                                         }
                                         end={link.to === "/"}>
                                         {link.label}
@@ -66,7 +70,7 @@ export const Nav = () => {
                             return (
                                 <li className="pt-5" key="logout">
                                     <button
-                                        className="text-[18px] font-normal font-inter uppercase text-[#524641] hover:text-[#D97852] bg-none border-none cursor-pointer"
+                                        className="text-[18px] font-normal font-inter uppercase text-[#524641] hover:text-[#D97852] dark:text-gray-200 dark:hover:text-[#D97852] bg-none border-none cursor-pointer"
                                         onClick={logout}>
                                         {link.label}
                                     </button>
