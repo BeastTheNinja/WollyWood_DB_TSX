@@ -38,11 +38,6 @@ export const LogIn = () => {
                 setError('Der opstod en fejl - prøv igen')
             })
     }
-
-
-
-
-
     return (
         <>
             <div className="px-4 p-5">
