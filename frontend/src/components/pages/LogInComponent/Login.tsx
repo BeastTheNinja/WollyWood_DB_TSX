@@ -71,6 +71,7 @@ export const LogIn = () => {
                         </label>
                         <input
                             type="password"
+                            autoComplete="auto"
                             className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
                             name="password"
                         />
