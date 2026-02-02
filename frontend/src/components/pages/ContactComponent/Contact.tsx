@@ -68,7 +68,7 @@ export const ContactForm = () => {
                             type="text"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
-                            className="bg-white border border-gray-300 px-3 py-2"
+                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
                         />
                         {nameError && <p className="text-red-600">{nameError}</p>}
                     </div>
@@ -81,7 +81,7 @@ export const ContactForm = () => {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            className="bg-white border border-gray-300 px-3 py-2"
+                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
                         />
                         {emailError && <p className="text-red-600">{emailError}</p>}
                     </div>
@@ -93,14 +93,8 @@ export const ContactForm = () => {
                         <textarea
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
-                            className="
-                            bg-white border 
-                            border-gray-300 
-                            px-3 
-                            py-2
-                            h-32
-                            w-full
-                            resize-none"/>
+                            className="bg-white border border-gray-300 shadow-inner px-3 py-2 h-32 w-full resize-none focus:outline-none focus:ring-2 focus:ring-[#FFFFFF]"
+                        />
 
                         {messageError && <p className="text-red-600">{messageError}</p>}
 
