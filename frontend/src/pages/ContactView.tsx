@@ -1,13 +1,14 @@
 import { ContactForm } from "../components/pages/ContactComponent/Contact"
+import { Title } from "../components/Title"
 
 export const ContactView = () => {
 
     return (
         <>
-        <h2 className="text-[#D97852] text-[32px] font-[TitilliumWeb] ml-5" >Kontakt os</h2>
-        <ContactForm />
-        
-        
+            <Title title="Kontakt os" />
+            <ContactForm />
+
+
         </>
     )
 }

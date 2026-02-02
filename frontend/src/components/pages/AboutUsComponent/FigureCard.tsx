@@ -5,17 +5,17 @@ export const FigureCard = () => {
 
         <>
             <div className="space-y-4">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero, natus voluptas ad aspernatur asperiores officiis consequatur non similique ratione sapiente, temporibus accusamus, quia quos dolorem repellat autem. Nesciunt, quasi dolore.
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe ut consectetur, temporibus aperiam quis nisi nesciunt velit, vero, quo vel voluptates tempore quisquam! Ex dignissimos error aperiam nisi sed nam.
+
+                <p className="text-[#524641] font-[OpenSans]">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque ac ipsum sed faucibus. Vivamus mollis sagittis hendrerit. Donec turpis erat, vestibulum non turpis sed, finibus congue velit. Pellentesque sagittis est eget nisi malesuada, a aliquet est imperdiet. Aenean dapibus finibus laoreet. Pellentesque suscipit hendrerit enim, non tempor erat sodales quis. Nullam sed enim eu elit posuere commodo at în nisl. Aliquam egestas turpis vel odio consectetur auctor. Cras porttitor orci non scelerisque porttitor. Phasellus dictum ligula rutrum neque pharetra, faucibus molestie libero ultricies. Aenean risus risus, sollicitudin at rutrum vel, venenatis ac urna. Phasellus a pulvinar massa.
                 </p>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo amet, debitis tempore cumque assumenda aliquid doloribus libero dolorem veritatis officia dicta quisquam voluptatibus nisi iure soluta quis adipisci similique odit.
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem suscipit eius est nesciunt quaerat consequuntur voluptates facere illo, laborum eos, magnam reiciendis ad? Quisquam eaque eos ducimus! Exercitationem, minus mollitia.
+                <p className="text-[#524641] font-[OpenSans]">
+                    Phasellus faucibus libero eu malesuada tristique. Donec tristique lacus in ipsum sollicitudin viverra. Sed porttitor sit amet felis accumsan egestas. Fusce quis commodo urna, non feugiat odio. Nam in tempus magna. Quisque eu neque sed lacus egestas pulvinar eget in lacus. Quisque sit amet sem efficitur sapien bibendum mollis. Quisque in eros sit amet justo scelerisque rutrum.
                 </p>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum neque at accusamus repudiandae mollitia hic fugiat repellat tempora! Natus, non. Temporibus eveniet obcaecati fugit hic explicabo dignissimos eius nam nihil?
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident nemo reprehenderit officiis nisi commodi consequuntur ipsum molestias, rerum, sint quo totam quidem itaque voluptate obcaecati hic aspernatur velit officia magni.
+                <p className="text-[#524641] font-[OpenSans] font-normal text-sm">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed scelerisque ac ipsum sed faucibus. Vivamus mollis sagittis hendrerit. Donec turpis erat, vestibulum non turpis sed, finibus congue velit. Pellentesque sagittis est eget nisi malesuada, a aliquet est imperdiet. Aenean dapibus finibus laoreet. Pellentesque suscipit hendrerit enim, non tempor erat sodales quis. Nullam sed enim eu elit posuere commodo at în nisl.
+
+
                 </p>
             </div>
 

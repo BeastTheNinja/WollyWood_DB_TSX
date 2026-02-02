@@ -4,7 +4,7 @@ import { SideNav } from "../components/pages/PostersComponent/SideNav";
 import { useFetchData } from "../data/useFetchData";
 import type { Moviedata, SortOption } from "../types/movieType";
 import { Dropdown } from "../components/pages/PostersComponent/Dropdown";
-import { Title } from "../components/pages/HomeComponent/Title";
+import { Title } from "../components/Title";
 import { PriceFilter } from "../components/pages/PostersComponent/PriceFilter";
 
 export const Posters = () => {

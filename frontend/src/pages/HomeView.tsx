@@ -1,5 +1,5 @@
 import Hero from '.././assets/images/curtain.jpg';
-import { Title } from "../components/pages/HomeComponent/Title";
+import { Title } from "../components/Title";
 import { MovieCardHome } from "../components/pages/HomeComponent/MovieCardHome";
 import { useFetchData } from "../data/useFetchData";
 import type { Moviedata } from '../types/movieType';

@@ -7,7 +7,7 @@ export const Footer = () => {
         <footer className="flex justify-between items-center p-4 border-t border-[#D1B3A7] relative m-5">
             <div className="grid grid-cols-2 gap-20 relative">
                 <ul>
-                    <p className="font-[TitilliumWeb] text-[#D97852] text-lg">WALLYWOOD</p>
+                    <p className="font-[TitilliumWeb] text-[#D97852] text-[16px] font-bold ">WALLYWOOD</p>
                     <li className="font-[OpenSans] text-sm">
                         Øster Uttrupvej 1
                     </li>

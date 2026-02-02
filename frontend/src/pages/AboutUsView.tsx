@@ -1,15 +1,16 @@
 import { FigureCard } from "../components/pages/AboutUsComponent/FigureCard"
 import Stjerne from '../assets/images/StjerneBilledeOmOs.png'
+import { Title } from "../components/Title"
 export const AboutUsView = () => {
 
     return (
         <>
-            <h2 className="text-[#D97852] text-[32px] font-[TitilliumWeb] mb-6 ml-5">Om os</h2>
+            <Title title="Om os" />
             <figure className="flex gap-6 ml-5 mr-5 relative">
                 <div className="flex-1">
                     <FigureCard />
                 </div>
-                <div className="flex-1 flex justify-end items-center relative -top-20 my-auto">
+                <div className="flex-1 flex justify-end items-center">
                     <img
                         src={Stjerne}
                         alt="Om WollyWood"
