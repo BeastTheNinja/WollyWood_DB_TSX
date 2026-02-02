@@ -27,7 +27,7 @@ export const Footer = () => {
                     </li>
                 </ul>
             </div>
-            <div className="flex gap-2 absolute right-4 top-1">
+            <div className="flex gap-2 absolute right-0 top-1">
                 <FaTwitterSquare size={30} color="#CCCCCC" />
                 <FaFacebookSquare size={30} color="#CCCCCC" />
                 <FaInstagramSquare size={30} color="#CCCCCC" />
