@@ -61,7 +61,7 @@ export const ContactForm = () => {
                     {hasSubmitted && <p className="text-green-600 font-semibold">Formularen er sendt!</p>}
 
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold">
+                        <label className="font-semibold font-[OpenSans] text-[#524641]">
                             Fulde navn: <span className="text-red-600">*</span>
                         </label>
                         <input
@@ -74,7 +74,7 @@ export const ContactForm = () => {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold">
+                        <label className="font-semibold font-[OpenSans] text-[#524641]">
                             Email: <span className="text-red-600">*</span>
                         </label>
                         <input
@@ -87,7 +87,7 @@ export const ContactForm = () => {
                     </div>
 
                     <div className="flex flex-col gap-1">
-                        <label className="font-semibold">
+                        <label className="font-semibold font-[OpenSans] text-[#524641]">
                             Besked: <span className="text-red-600">*</span>
                         </label>
                         <textarea
@@ -100,7 +100,7 @@ export const ContactForm = () => {
 
                     </div>
 
-                    <button type="submit" className="bg-[#D1B3A7] border border-[#524641] px-4 py-2 w-fit self-start">
+                    <button type="submit" className="bg-[#D1B3A7] border border-[#524641] rounded w-18.75 h-8.5 flex items-center justify-center self-start text-[#524641] font-semibold font-[OpenSans]">
                         Send
                     </button>
 
