@@ -10,7 +10,7 @@ interface DataGridProps {
 }
 
 export const DataGrid = ({ url, title }: DataGridProps) => {
-    const { data, loading, error } = useFetchData<Moviedata>(url);
+    const { data, loading, error } = useFetchData<Array<Moviedata>>(url);
     
     // Get dark mode state from context
     const darkModeContext = useContext(DarkModeContext)
