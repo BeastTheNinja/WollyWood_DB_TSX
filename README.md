@@ -1,61 +1,142 @@
 # WollyWood DB TSX
 
-Et fullstack webshop-projekt bygget med React, TypeScript, Vite og Tailwind CSS.
+Et fullstack webshop-projekt til filmplakater bygget med React, TypeScript, Vite, Tailwind CSS og Node.js.
 
 ## Projektbeskrivelse
 
-WollyWood er en online plakat-webshop hvor brugere kan browse, sortere og filtrere filmplakater efter genre og pris.
+WollyWood er en online plakat-webshop hvor brugere kan browse, filtrere og købe filmplakater. Projektet omfatter en fuldt funktionel backend API og en responsiv frontend med dark mode support.
 
 ## Teknologier
 
 ### Frontend
 
-- **React 18** med TypeScript
-- **Vite** som build tool
-- **Tailwind CSS** til styling
-- **React Router** til navigation
+- **React 19** med TypeScript
+- **Vite** som build tool og dev server
+- **Tailwind CSS 4** til styling
+- **React Router 7** til client-side routing
+- **React Icons** til UI ikoner
+- **html-react-parser** til rendering af HTML indhold
 
 ### Backend
 
-- Node.js REST API (port 3000)
-- Endpoints til plakater, genrer og sortering
+- **Node.js** med Express
+- **Sequelize** som ORM
+- **MySQL** database
+- **JWT** til autentifikation
+- **bcrypt** til password hashing
+- **CORS** support
+- Port: 3000
 
 ## Funktioner
 
-- 📋 Browse plakater med paginering
+- 🎬 Browse filmplakater med detaljevisning
 - 🎭 Filtrer efter genre
-- 💰 Sortér efter pris (lav→høj / høj→lav)
-- 🎲 Random sortering som default
-- 📱 Responsiv design
+- 💰 Prisfiltrering og sortering
+- 🌙 Dark mode support
+- 👤 Brugeradministration (Login/Sign up)
+- 🛒 Shopping cart funktionalitet
+- 📱 Fuldt responsiv design
+- 🔐 JWT autentifikation
+- 📊 Admin datavurdering
 
-## Installation
+## Installation & Setup
+
+### Backend
 
 ```bash
-# Klon repository
-git clone https://github.com/BeastTheNinja/WollyWood_DB_TSX.git
-
-# Installer frontend dependencies
-cd frontend
+cd Backend/wallywood_api
 npm install
-
-# Start frontend
-npm run dev
+npm run dev  # Starter med nodemon på port 3000
 ```
 
-Backend skal køre på `http://localhost:3000`
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev  # Starter Vite dev server på port 5173
+```
+
+Backend skal køre på `http://localhost:3000` for at frontend kan fetche data.
 
 ## Projekt Struktur
 
 ```
 WollyWood_DB_TSX/
-├── frontend/           # React frontend applikation
-│   ├── src/
-│   │   ├── components/ # Genbrugelige komponenter
-│   │   ├── pages/      # Side-komponenter
-│   │   ├── types/      # TypeScript type definitions
-│   │   └── data/       # Data fetching hooks
-│   └── ...
-└── README.md
+├── README.md
+├── Backend/
+│   └── wallywood_api/
+│       ├── Controllers/        # API request handlers
+│       │   ├── cartline.controller.js
+│       │   ├── genre.controller.js
+│       │   ├── poster.controller.js
+│       │   ├── userpost.controller.js
+│       │   ├── Seeder/        # Database seed data
+│       │   └── System/        # User, org, group management
+│       ├── Models/             # Sequelize database models
+│       ├── Routes/             # API endpoints
+│       ├── Middleware/         # Auth, helpers
+│       ├── Data/               # CSV seed files
+│       ├── Config/             # Database config
+│       ├── index.js
+│       └── package.json
+└── frontend/
+    ├── README.md
+    ├── src/
+    │   ├── components/         # React komponenter
+    │   │   ├── context/       # React Context (Dark mode, Auth)
+    │   │   ├── pages/         # Side-komponenter
+    │   │   │   ├── HomeComponent/
+    │   │   │   ├── PostersComponent/
+    │   │   │   ├── DetailsComponent/
+    │   │   │   ├── ContactComponent/
+    │   │   │   ├── AboutUsComponent/
+    │   │   │   └── LogInComponent/
+    │   │   ├── Header/
+    │   │   ├── Footer/
+    │   │   └── Nav/
+    │   ├── pages/              # Route pages
+    │   ├── router/             # React Router config
+    │   ├── data/               # Fetch hooks
+    │   ├── types/              # TypeScript definitions
+    │   ├── style/              # Global styles
+    │   ├── assets/             # Images, icons
+    │   └── main.tsx
+    ├── index.html
+    ├── package.json
+    └── vite.config.ts
+```
+
+## API Endpoints
+
+### Plakater
+
+- `GET /posters` - Alle plakater
+- `GET /posters/:slug` - Enkelt plakat
+
+### Genrer
+
+- `GET /genres` - Alle genrer
+
+### Brugere
+
+- `POST /auth/login` - Login
+- `POST /auth/register` - Registrering
+
+### Kurv
+
+- `POST /cart` - Tilføj til kurv
+- `GET /cart` - Se kurv
+
+## Scripts
+
+```bash
+# Development
+npm run dev          # Start dev server
+npm run build        # Build til production
+npm run preview      # Preview production build
+npm run lint         # Lint kode
+```└── README.md
 ```
 
 ## API Endpoints

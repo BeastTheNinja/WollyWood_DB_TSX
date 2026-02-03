@@ -1,13 +1,16 @@
 # WollyWood Frontend
 
-React + TypeScript + Vite frontend til WollyWood plakat-webshop.
+React 19 + TypeScript + Vite frontend til WollyWood plakat-webshop.
 
 ## Tech Stack
 
-- **React 18** med TypeScript
+- **React 19** med TypeScript
 - **Vite** som build tool og dev server
-- **Tailwind CSS** til styling
-- **React Router** til client-side routing
+- **Tailwind CSS 4** til styling
+- **React Router 7** til client-side routing
+- **React Icons** til UI ikoner
+- **html-react-parser** til rendering af HTML indhold
+- **Custom Hooks** til data fetching (useFetchData)
 
 ## Funktioner
 
@@ -16,27 +19,132 @@ React + TypeScript + Vite frontend til WollyWood plakat-webshop.
 - Grid-layout med responsive design
 - Lazy loading af data via custom `useFetchData` hook
 - Loading states og error handling
+- Detaljeret produktside med HTML-parseret beskrivelser
 
-### Filtrering & Sortering
+### Dark Mode
 
-- Genre-filter via sidebar navigation
-- Pris-sortering (stigende/faldende)
-- Random sortering som default
-- Dynamisk URL query params
+- Global dark mode context
+- Persistent dark mode preference
+- Alle komponenter understøtter dark/light mode
 
-### Komponenter
+### Autentifikation
 
-#### Pages
+- Login/Sign up komponent
+- JWT-baseret autentifikation
+- Auth context for globale brugertilstande
 
-- `Posters.tsx` - Hovedside med grid, filter og sortering
-- `PosterDetails.tsx` - Detaljevisning af enkelt plakat
+### UI Komponenter
 
-#### Components
+- **Header** - Navigation og branding
+- **Footer** - Footer sektion
+- **Nav** - Navigation menu
+- **MovieCardHome** - Plakat kort på forside
+- **Details** - Detaljeret produktside
+- **Title** - Sidehoveder
 
-- `PostersGrid` - Grid layout til plakater
-- `SideNav` - Genre filter sidebar
-- `Dropdown` - Sorterings dropdown
-- `Header` / `Footer` - Layout komponenter
+## Projekt Struktur
+
+```
+src/
+├── components/
+│   ├── context/              # React Context (Dark mode, Auth)
+│   │   ├── AuthContext.tsx
+│   │   ├── AuthContextProvider.tsx
+│   │   ├── darkmodeContext.tsx
+│   │   └── darkmodeContextProvider.tsx
+│   ├── pages/                # Side-specifikke komponenter
+│   │   ├── HomeComponent/
+│   │   │   └── MovieCardHome.tsx
+│   │   ├── PostersComponent/
+│   │   │   ├── PostersGrid.tsx
+│   │   │   ├── MovieCard.tsx
+│   │   │   ├── SideNav.tsx
+│   │   │   ├── Dropdown.tsx
+│   │   │   └── PriceFilter.tsx
+│   │   ├── DetailsComponent/
+│   │   │   └── Details.tsx
+│   │   ├── ContactComponent/
+│   │   │   └── Contact.tsx
+│   │   ├── AboutUsComponent/
+│   │   │   └── FigureCard.tsx
+│   │   └── LogInComponent/
+│   │       └── Login.tsx
+│   ├── Header/
+│   │   └── Header.tsx
+│   ├── Footer/
+│   │   └── Footer.tsx
+│   ├── Nav/
+│   │   └── Nav.tsx
+│   └── Title.tsx
+├── pages/                     # Route pages
+│   ├── HomeView.tsx
+│   ├── PostersView.tsx
+│   ├── DetailsView.tsx
+│   ├── ContactView.tsx
+│   ├── AboutUsView.tsx
+│   ├── LogInView.tsx
+│   ├── NotFoundView.tsx
+│   └── DataGrid.tsx
+├── router/
+│   └── Routes.tsx             # React Router konfiguration
+├── data/
+│   └── useFetchData.ts        # Custom hook til data fetching
+├── types/
+│   ├── movieType.d.ts         # Movie/Poster TypeScript types
+│   └── userType.d.ts          # User TypeScript types
+├── Layout/
+│   └── Layout.tsx
+├── style/
+│   ├── Fonts.css
+│   └── tailwind.css
+├── assets/
+│   ├── icons/
+│   └── images/
+└── main.tsx
+```
+
+## TypeScript Types
+
+### movieType.d.ts
+
+```typescript
+type Moviedata = {
+  id: number;
+  slug: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+  stock: number;
+  genres: Genre[];
+}
+
+type Genre = {
+  id: number;
+  title: string;
+}
+```
+
+### userType.d.ts
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+  email: string;
+  // Andre brugerfelt...
+}
+```
+
+## Custom Hooks
+
+### useFetchData
+
+Generisk hook til data fetching fra API.
+
+```typescript
+const { data, loading, error } = useFetchData<T>(url);
+```
 
 ## Scripts
 
@@ -54,14 +162,37 @@ npm run preview
 npm run lint
 ```
 
-## Projekt Struktur
+## Environment Setup
 
+Backend skal køre på `http://localhost:3000` for at frontend kan fetche data korrekt.
+
+```bash
+# Start backend først (fra Backend/wallywood_api)
+npm run dev
+
+# Derefter start frontend (fra frontend)
+npm run dev
 ```
-src/
-├── components/
-│   ├── layout/          # Header, Footer, Navigation
-│   └── pages/           # Side-specifikke komponenter
-│       └── PostersComponent/
+
+## Styling
+
+Projektet bruger Tailwind CSS 4 med custom farvepalette:
+
+- Primær farve: `#D1B3A7`
+- Tekst: `#524641`
+- Grøn: `#006F00`, `#006600`
+- Dark mode: Gray-scale (`gray-800`, `gray-700` osv.)
+
+## API Integration
+
+Alle API kald går gennem `useFetchData` hooken som handler loading/error states:
+
+```typescript
+const { data, loading, error } = useFetchData<Moviedata>(
+  `http://localhost:3000/posters/${params.slug}`
+);
+```
+
 │           ├── PostersGrid.tsx
 │           ├── SideNav.tsx
 │           └── Dropdown.tsx
@@ -73,6 +204,7 @@ src/
 ├── data/                # Data fetching
 │   └── useFetchData.ts
 └── App.tsx              # Root komponent med routing
+
 ```
 
 ## TypeScript Types
