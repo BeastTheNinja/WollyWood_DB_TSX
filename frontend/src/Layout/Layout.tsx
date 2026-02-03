@@ -5,6 +5,13 @@ import { useContext } from "react"
 import { DarkModeContext } from "../components/context/darkmodeContext"
 
 export const Layout = () => {
+
+
+    
+
+
+
+
     // Get dark mode state from context
     const darkModeContext = useContext(DarkModeContext)
     const isDarkMode = darkModeContext?.isDarkMode ?? false

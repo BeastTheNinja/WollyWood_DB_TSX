@@ -14,7 +14,6 @@ export const Posters = () => {
 
     const params = new URLSearchParams({
         limit: "9",
-        attributes: "id,name,image,price",
     });
 
     if (selectedSort) {
@@ -34,7 +33,9 @@ export const Posters = () => {
         ? `http://localhost:3000/posters/list_by_genre/${selectedGenre}?${params.toString()}`
         : `http://localhost:3000/posters?${params.toString()}`;
 
-    const { data, loading, error } = useFetchData<Moviedata>(baseUrl);
+    const { data, loading, error } = useFetchData<Array<Moviedata>>(baseUrl);
+
+    console.log('Fetched posters data:', data);
 
     // Filtrer data baseret på priceRange
     const filteredData = priceRange && data

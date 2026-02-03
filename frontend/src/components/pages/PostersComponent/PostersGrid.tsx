@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import { DarkModeContext } from '../../context/darkmodeContext'
 
 interface PostersGridProps {
-    data: Moviedata[] | null;
+    data: Moviedata[] | undefined;
     loading: boolean;
     error: string | null;
 }

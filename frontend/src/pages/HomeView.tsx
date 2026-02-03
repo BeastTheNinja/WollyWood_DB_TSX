@@ -5,7 +5,7 @@ import { useFetchData } from "../data/useFetchData";
 import type { Moviedata } from '../types/movieType';
 
 export const HomeView = () => {
-    const { data, loading, error } = useFetchData<Moviedata>(`http://localhost:3000/posters?sort_key=random&limit=2&attributes=id,name,description,image`);
+    const { data, loading, error } = useFetchData<Array<Moviedata>>(`http://localhost:3000/posters?sort_key=random&limit=2&attributes=id,name,description,image`);
 
     return (
         <>

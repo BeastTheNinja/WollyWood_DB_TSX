@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
  * @returns Object containing data array, loading state, and error message
  */
 export const useFetchData = <T,>(url: string) => {
-    const [data, setData] = useState<T[]>([]);
+    const [data, setData] = useState<T>();
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
 

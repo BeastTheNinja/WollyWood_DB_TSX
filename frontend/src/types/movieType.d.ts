@@ -7,6 +7,10 @@ export interface Moviedata {
     price: number;
     sortOption?: string;      // Optional sorting option
     genres: Genre[];          // Array of associated genres
+    slug: string;             // URL-friendly identifier
+    stock: number;            // Stock quantity
+    width: number;            // Width of the poster
+    height: number;           // Height of the poster
 }
 
 // Genre type with relation data

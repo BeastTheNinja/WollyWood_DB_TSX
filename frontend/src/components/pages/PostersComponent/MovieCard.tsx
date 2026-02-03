@@ -1,6 +1,7 @@
 import type { Moviedata } from '../../../types/movieType';
 import { useContext } from 'react'
 import { DarkModeContext } from '../../context/darkmodeContext'
+import { NavLink } from 'react-router';
 
 interface MovieCardProps {
     movie: Moviedata;
@@ -14,11 +15,15 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
     return (
         <div className={`flex flex-col gap-2 h-full ${isDarkMode ? 'bg-gray-800' : ''}`}>
             <div className="w-full h-80 overflow-hidden">
-                <img
-                    className="w-full h-full object-cover"
-                    src={movie.image}
-                    alt={movie.name}
-                />
+                <NavLink to={`/details/${movie.slug}`}>
+
+
+                    <img
+                        className="w-full h-full object-cover"
+                        src={movie.image}
+                        alt={movie.name}
+                    />
+                </NavLink>
             </div>
             <div className="flex flex-col gap-2 flex-1">
                 <h4 className={`font-bold text-lg font-[OpenSans] text-center ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>

@@ -5,6 +5,7 @@ import { ContactView } from "../pages/ContactView"
 import { Posters } from "../pages/PostersView"
 import { AboutUsView } from "../pages/AboutUsView"
 import { LoginView } from "../pages/LogInView"
+import { Details } from "../components/pages/DetailsComponent/Details"
 
 // Main routing component - defines all application routes
 export const Routing = () => {
@@ -17,6 +18,7 @@ export const Routing = () => {
                         <Route index element={<HomeView />} />
                         <Route path="/Om-os" element={<AboutUsView />} />
                         <Route path="/Plakater" element={<Posters />} />
+                        <Route path="/details/:slug" element={<Details />} />
                         <Route path="/Kontakt" element={<ContactView />} />
                         <Route path="/login" element={<LoginView />} />
                     </Route>
