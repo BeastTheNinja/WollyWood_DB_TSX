@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { lazy, Suspense } from "react"
 
+// Lazy-load route components to keep the initial bundle small
 const HomeView = lazy(() => import("../pages/HomeView").then((m) => ({ default: m.HomeView })))
 const Layout = lazy(() => import("../Layout/Layout").then((m) => ({ default: m.Layout })))
 const ContactView = lazy(() => import("../pages/ContactView").then((m) => ({ default: m.ContactView })))
@@ -14,6 +15,7 @@ export const Routing = () => {
     return (
         <>
             <BrowserRouter>
+                {/* Suspense boundary for lazy route chunks */}
                 <Suspense fallback={<div className="p-4">Indlaeser...</div>}>
                     <Routes>
                         {/* Layout route wraps all child routes with header/footer */}

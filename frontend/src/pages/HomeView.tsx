@@ -9,6 +9,7 @@ export const HomeView = () => {
 
     return (
         <>
+            {/* Fixed aspect keeps layout stable while hero loads */}
             <div className='ml-5 mr-5 mt-2 mb-4 aspect-video overflow-hidden'>
                 <img
                     className='w-full h-full object-cover'
@@ -23,6 +24,7 @@ export const HomeView = () => {
                 />
             </div>
             <Title title="Seneste Nyt..." />
+            {/* Min height prevents grid jumps during fetch */}
             <div className="ml-5 mr-5 grid grid-cols-2 gap-6 min-h-85">
                 {loading && <p className="text-[#3B2A22] font-[OpenSans]">Indlæser...</p>}
                 {error && <p className="text-red-500 font-[OpenSans]">Fejl: {error}</p>}

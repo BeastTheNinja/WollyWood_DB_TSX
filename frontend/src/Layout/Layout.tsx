@@ -22,7 +22,7 @@ export const Layout = () => {
             {/* Content wrapper with theme-aware background */}
             <div className="bg-[#F9F9F9] dark:bg-gray-900 drop-shadow-[#000029]">
                 <Header />
-                {/* Outlet renders child routes */}
+                {/* Main landmark for routed pages */}
                 <main>
                     <Outlet />
                 </main>

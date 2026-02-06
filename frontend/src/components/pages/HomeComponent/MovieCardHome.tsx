@@ -14,6 +14,7 @@ export const MovieCardHome = ({ movie }: MovieCardProps) => {
 
     return (
         <div className={`flex gap-4 border rounded-lg p-4 max-w-md min-h-80 ${isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-[#D1B3A7]'}`}>
+            {/* Reserve image space to avoid layout shift */}
             <div className="w-52 aspect-2/3 shrink-0 overflow-hidden">
                 <img
                     className="w-full h-full object-cover"

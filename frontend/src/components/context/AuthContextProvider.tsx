@@ -11,6 +11,7 @@ interface AuthContextProviderInterface {
 // Wraps components that need access to user authentication state
 // Handles localStorage persistence of user data
 export const AuthContextProvider = ({ children }: AuthContextProviderInterface) => {
+    // Null means no active user session
     const [userData, setUserData] = useState<UserData | null>(null)
 
     // On component mount, check localStorage for existing user session
