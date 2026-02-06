@@ -14,7 +14,7 @@ export const Footer = () => {
         <footer className={`flex justify-between items-center p-4 border-t relative m-5 ${isDarkMode ? 'border-gray-600' : 'border-[#D1B3A7]'}`}>
             <div className="grid grid-cols-2 gap-20 relative">
                 <div>
-                    <p className={`font-[TitilliumWeb] text-[16px] font-bold ${isDarkMode ? 'text-[#D97852]' : 'text-[#D97852]'}`}>WALLYWOOD</p>
+                    <p className={`font-[TitilliumWeb] text-[16px] font-bold ${isDarkMode ? 'text-[#D97852]' : 'text-[#B85A39]'}`}>WALLYWOOD</p>
                     <ul>
                         <li className={`font-[OpenSans] text-sm ${isDarkMode ? 'text-gray-300' : ''}`}>
                             Øster Uttrupvej 1

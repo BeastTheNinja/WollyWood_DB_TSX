@@ -12,7 +12,7 @@ export const Title = ({ title }: TitleProps) => {
 
     return (
         <>
-            <h2 className={`text-[32px] font-[TitilliumWeb] ml-5 font-bold text-left ${isDarkMode ? 'text-[#D97852]' : 'text-[#D97852]'}`}>{title}</h2>
+            <h2 className={`text-[32px] font-[TitilliumWeb] ml-5 font-bold text-left ${isDarkMode ? 'text-[#D97852]' : 'text-[#B85A39]'}`}>{title}</h2>
         </>
     )
 }
