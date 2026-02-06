@@ -42,7 +42,7 @@ export const LogIn = () => {
                 setError('Der opstod en fejl - prøv igen')
             })
     }
-        // Get dark mode state from context
+    // Get dark mode state from context
     const darkModeContext = useContext(DarkModeContext)
     const isDarkMode = darkModeContext?.isDarkMode ?? false
     return (
@@ -50,7 +50,7 @@ export const LogIn = () => {
             {/* Welcome message displayed when user is logged in */}
             <div className={`px-4 p-5 ${isDarkMode ? 'text-white' : 'text-black'}`}>
                 {userData && (
-                    <b className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                    <b className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                         Velkommen {userData.user.firstname} {userData.user.lastname}
                     </b>
                 )}
@@ -59,14 +59,15 @@ export const LogIn = () => {
             {/* Login form */}
             <div className={`flex px-4 gap-6 ${isDarkMode ? 'text-white' : 'text-black'}`}>
                 <form className="flex flex-col gap-4 w-full max-w-md" onSubmit={(e) => postLogin(e)}>
-                {/* Display error message if login fails */}
-                {error && <b className={`font-normal ${isDarkMode ? 'text-red-300' : ''}`}>{error}</b>}
+                    {/* Display error message if login fails */}
+                    {error && <b className={`font-normal ${isDarkMode ? 'text-red-300' : ''}`}>{error}</b>}
                     {/* Username input field */}
                     <div className="flex flex-col gap-1">
-                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                        <label htmlFor="login-username" className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                             Brugernavn: <span className="text-red-600">*</span>
                         </label>
                         <input
+                            id="login-username"
                             type="text"
                             className={`shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
                             name="email"
@@ -75,10 +76,11 @@ export const LogIn = () => {
 
                     {/* Password input field */}
                     <div className="flex flex-col gap-1">
-                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                        <label htmlFor="login-password" className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                             Password: <span className="text-red-600">*</span>
                         </label>
                         <input
+                            id="login-password"
                             type="password"
                             autoComplete="auto"
                             className={`shadow-inner px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
@@ -87,7 +89,7 @@ export const LogIn = () => {
                     </div>
 
                     {/* Submit button */}
-                    <button type="submit" className={`border rounded w-18.75 h-8.5 flex items-center justify-center self-star font-semibold font-[OpenSans] ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
+                    <button type="submit" className={`border rounded w-18.75 h-8.5 flex items-center justify-center self-star font-semibold font-[OpenSans] ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#3B2A22] border-[#524641]'}`}>
                         Send
                     </button>
 

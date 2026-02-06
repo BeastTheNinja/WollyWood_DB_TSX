@@ -11,7 +11,7 @@ interface DataGridProps {
 
 export const DataGrid = ({ url, title }: DataGridProps) => {
     const { data, loading, error } = useFetchData<Array<Moviedata>>(url);
-    
+
     // Get dark mode state from context
     const darkModeContext = useContext(DarkModeContext)
     const isDarkMode = darkModeContext?.isDarkMode ?? false
@@ -25,7 +25,7 @@ export const DataGrid = ({ url, title }: DataGridProps) => {
             )}
 
             <div className="ml-5 mr-5 grid grid-cols-3 gap-6">
-                {loading && <p className={`font-[OpenSans] ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>Indlæser...</p>}
+                {loading && <p className={`font-[OpenSans] ${isDarkMode ? 'text-gray-300' : 'text-[#3B2A22]'}`}>Indlæser...</p>}
                 {error && <p className="text-red-500 font-[OpenSans]">Fejl: {error}</p>}
                 {!loading && !error && data && data.length === 0 && <p className={isDarkMode ? 'text-gray-300' : ''}>Ingen data fundet</p>}
                 {data && data.map((poster) => (

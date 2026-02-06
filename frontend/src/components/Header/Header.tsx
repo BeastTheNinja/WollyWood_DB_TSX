@@ -1,6 +1,6 @@
 import '../../style/Fonts.css'
 import { Nav } from '../Nav/Nav'
-import { FaShoppingBasket } from "react-icons/fa";
+import { FaShoppingBasket } from "@react-icons/all-files/fa/FaShoppingBasket";
 import { useContext } from 'react'
 import { DarkModeContext } from '../context/darkmodeContext'
 

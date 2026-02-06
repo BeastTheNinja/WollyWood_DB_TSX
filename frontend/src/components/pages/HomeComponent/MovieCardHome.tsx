@@ -18,20 +18,25 @@ export const MovieCardHome = ({ movie }: MovieCardProps) => {
                 className="w-52 h-auto object-cover"
                 src={movie.image}
                 alt={movie.name}
+                width={208}
+                height={312}
+                sizes="(max-width: 768px) 100vw, 208px"
+                loading="lazy"
+                decoding="async"
             />
             <div className="flex flex-col gap-2">
-                <h4 className={`font-bold text-xl font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                <h3 className={`font-bold text-xl font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                     {movie.name}
-                </h4>
-                <div className={`font-[OpenSans] ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>
-                  {movie.description && parse(movie.description)}
+                </h3>
+                <div className={`font-[OpenSans] ${isDarkMode ? 'text-gray-300' : 'text-[#3B2A22]'}`}>
+                    {movie.description && parse(movie.description)}
                 </div>
-                <div className={`font-[OpenSans] flex justify-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>
+                <div className={`font-[OpenSans] flex justify-start gap-2 ${isDarkMode ? 'text-gray-300' : 'text-[#3B2A22]'}`}>
                     Genre: {movie.genres.map((genre) => (
                         <p key={genre.id}>{genre.title}</p>
                     ))}
                 </div>
-                <button className={`font-[OpenSans] font-bold border px-4 py-2 rounded mt-auto w-fit ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
+                <button className={`font-[OpenSans] font-bold border px-4 py-2 rounded mt-auto w-fit ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#3B2A22] border-[#524641]'}`}>
                     Læs mere
                 </button>
             </div>

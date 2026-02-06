@@ -63,7 +63,7 @@ export const ContactForm = () => {
             setMessage("");
         }
     };
-        // Get dark mode state from context
+    // Get dark mode state from context
     const darkModeContext = useContext(DarkModeContext)
     const isDarkMode = darkModeContext?.isDarkMode ?? false
 
@@ -77,10 +77,11 @@ export const ContactForm = () => {
 
                     {/* Full name input with validation */}
                     <div className="flex flex-col gap-1">
-                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                        <label htmlFor="full-name" className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                             Fulde navn: <span className="text-red-600">*</span>
                         </label>
                         <input
+                            id="full-name"
                             type="text"
                             value={fullName}
                             onChange={(e) => setFullName(e.target.value)}
@@ -91,10 +92,11 @@ export const ContactForm = () => {
 
                     {/* Email input with validation */}
                     <div className="flex flex-col gap-1">
-                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                        <label htmlFor="email" className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                             Email: <span className="text-red-600">*</span>
                         </label>
                         <input
+                            id="email"
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
@@ -105,10 +107,11 @@ export const ContactForm = () => {
 
                     {/* Message textarea with validation */}
                     <div className="flex flex-col gap-1">
-                        <label className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                        <label htmlFor="message" className={`font-semibold font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                             Besked: <span className="text-red-600">*</span>
                         </label>
                         <textarea
+                            id="message"
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             className={`shadow-inner px-3 py-2 h-32 w-full resize-none focus:outline-none focus:ring-2 focus:ring-[#FFFFFF] ${isDarkMode ? 'bg-gray-800 border border-gray-600 text-gray-200' : 'bg-white border border-gray-300'}`}
@@ -119,7 +122,7 @@ export const ContactForm = () => {
                     </div>
 
                     {/* Submit button */}
-                    <button type="submit" className={`border rounded w-18.75 h-8.5 flex items-center justify-center self-start font-semibold font-[OpenSans] ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
+                    <button type="submit" className={`border rounded w-18.75 h-8.5 flex items-center justify-center self-start font-semibold font-[OpenSans] ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#3B2A22] border-[#524641]'}`}>
                         Send
                     </button>
 

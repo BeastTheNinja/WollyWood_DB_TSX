@@ -1,4 +1,7 @@
-import { FaFacebookSquare, FaInstagramSquare, FaPinterestSquare, FaTwitterSquare } from "react-icons/fa"
+import { FaFacebookSquare } from "@react-icons/all-files/fa/FaFacebookSquare"
+import { FaInstagramSquare } from "@react-icons/all-files/fa/FaInstagramSquare"
+import { FaPinterestSquare } from "@react-icons/all-files/fa/FaPinterestSquare"
+import { FaTwitterSquare } from "@react-icons/all-files/fa/FaTwitterSquare"
 import { useContext } from 'react'
 import { DarkModeContext } from '../context/darkmodeContext'
 
@@ -10,15 +13,17 @@ export const Footer = () => {
     return (
         <footer className={`flex justify-between items-center p-4 border-t relative m-5 ${isDarkMode ? 'border-gray-600' : 'border-[#D1B3A7]'}`}>
             <div className="grid grid-cols-2 gap-20 relative">
-                <ul>
+                <div>
                     <p className={`font-[TitilliumWeb] text-[16px] font-bold ${isDarkMode ? 'text-[#D97852]' : 'text-[#D97852]'}`}>WALLYWOOD</p>
-                    <li className={`font-[OpenSans] text-sm ${isDarkMode ? 'text-gray-300' : ''}`}>
-                        Øster Uttrupvej 1
-                    </li>
-                    <li className={`font-[OpenSans] text-sm ${isDarkMode ? 'text-gray-300' : ''}`}>
-                        9000 Aalborg
-                    </li>
-                </ul>
+                    <ul>
+                        <li className={`font-[OpenSans] text-sm ${isDarkMode ? 'text-gray-300' : ''}`}>
+                            Øster Uttrupvej 1
+                        </li>
+                        <li className={`font-[OpenSans] text-sm ${isDarkMode ? 'text-gray-300' : ''}`}>
+                            9000 Aalborg
+                        </li>
+                    </ul>
+                </div>
                 <ul>
                     <li className={`font-[OpenSans] text-sm ${isDarkMode ? 'text-gray-300' : ''}`}>
                         CVR: 12345678

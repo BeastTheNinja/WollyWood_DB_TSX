@@ -55,10 +55,9 @@ export const Nav = () => {
                                     <NavLink
                                         to={link.to}
                                         className={({ isActive }) =>
-                                            `text-[18px] font-normal font-inter uppercase ${
-                                                isActive
-                                                    ? "text-[#D97852] font-semibold"
-                                                    : "text-[#524641] hover:text-[#D97852] dark:text-gray-200 dark:hover:text-[#D97852]"
+                                            `text-[18px] font-normal font-inter uppercase ${isActive
+                                                ? "text-[#D97852] font-semibold"
+                                                : "text-[#3B2A22] hover:text-[#D97852] dark:text-gray-200 dark:hover:text-[#D97852]"
                                             }`
                                         }
                                         end={link.to === "/"}>
@@ -70,7 +69,7 @@ export const Nav = () => {
                             return (
                                 <li className="pt-5" key="logout">
                                     <button
-                                        className="text-[18px] font-normal font-inter uppercase text-[#524641] hover:text-[#D97852] dark:text-gray-200 dark:hover:text-[#D97852] bg-none border-none cursor-pointer"
+                                        className="text-[18px] font-normal font-inter uppercase text-[#3B2A22] hover:text-[#D97852] dark:text-gray-200 dark:hover:text-[#D97852] bg-none border-none cursor-pointer"
                                         onClick={logout}>
                                         {link.label}
                                     </button>
@@ -81,7 +80,7 @@ export const Nav = () => {
                                 <li className="pt-5" key={`toggle-${index}`}>
                                     <button
                                         onClick={toggleDarkMode}
-                                        className="text-[18px] font-normal font-inter uppercase text-[#524641] hover:text-[#D97852] dark:text-gray-200 dark:hover:bg-gray-600 rounded">
+                                        className="text-[18px] font-normal font-inter uppercase text-[#3B2A22] hover:text-[#D97852] dark:text-gray-200 dark:hover:bg-gray-600 rounded">
                                         {link.label}
                                     </button>
                                 </li>

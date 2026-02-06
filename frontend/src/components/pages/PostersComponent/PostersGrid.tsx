@@ -16,7 +16,7 @@ export const PostersGrid = ({ data, loading, error }: PostersGridProps) => {
 
     return (
         <div className="grid grid-cols-3 gap-6">
-            {loading && <p className={`font-[OpenSans] ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>Indlæser...</p>}
+            {loading && <p className={`font-[OpenSans] ${isDarkMode ? 'text-gray-300' : 'text-[#3B2A22]'}`}>Indlæser...</p>}
             {error && <p className="text-red-500 font-[OpenSans]">Fejl: {error}</p>}
             {!loading && !error && data && data.length === 0 && <p className={isDarkMode ? 'text-gray-300' : ''}>Ingen data fundet</p>}
             {data && data.map((poster) => (

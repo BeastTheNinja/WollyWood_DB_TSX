@@ -7,7 +7,7 @@ import { DarkModeContext } from "../components/context/darkmodeContext"
 export const Layout = () => {
 
 
-    
+
 
 
 
@@ -23,7 +23,9 @@ export const Layout = () => {
             <div className="bg-[#F9F9F9] dark:bg-gray-900 drop-shadow-[#000029]">
                 <Header />
                 {/* Outlet renders child routes */}
-                <Outlet />
+                <main>
+                    <Outlet />
+                </main>
                 <Footer />
             </div>
         </div>

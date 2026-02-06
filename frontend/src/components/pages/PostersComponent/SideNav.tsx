@@ -20,7 +20,7 @@ export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
             <div className="flex flex-col">
                 <div>
                     <h3 className={`font-bold text-lg ${isDarkMode ? 'text-gray-200' : ''}`}>Filtre</h3>
-                    <p className={` ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>Genre</p>
+                    <p className={` ${isDarkMode ? 'text-gray-300' : 'text-[#3B2A22]'}`}>Genre</p>
                 </div>
 
                 <button
@@ -40,8 +40,8 @@ export const SideNav = ({ selectedGenre, onGenreSelect }: SideNavProps) => {
                                 key={genre.id}
                                 onClick={() => onGenreSelect(genre.slug.toLowerCase())}
                                 className={`text-left  rounded ${selectedGenre === genre.slug.toLowerCase()
-                                        ? isDarkMode ? "text-[#D97852] font-semibold" : "text-[#5C1F06] font-semibold"
-                                        : isDarkMode ? "hover:bg-gray-700 text-gray-200" : "hover:bg-gray-200"
+                                    ? isDarkMode ? "text-[#D97852] font-semibold" : "text-[#3B2A22] font-semibold"
+                                    : isDarkMode ? "hover:bg-gray-700 text-gray-200" : "hover:bg-gray-200"
                                     }`}
                             >
                                 {genre.title}

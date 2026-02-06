@@ -22,17 +22,22 @@ export const MovieCard = ({ movie }: MovieCardProps) => {
                         className="w-full h-full object-cover"
                         src={movie.image}
                         alt={movie.name}
+                        width={480}
+                        height={640}
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        loading="lazy"
+                        decoding="async"
                     />
                 </NavLink>
             </div>
             <div className="flex flex-col gap-2 flex-1">
-                <h4 className={`font-bold text-lg font-[OpenSans] text-center ${isDarkMode ? 'text-gray-200' : 'text-[#524641]'}`}>
+                <h3 className={`font-bold text-lg font-[OpenSans] text-center ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                     {movie.name}
-                </h4>
-                <p className={`font-[OpenSans] text-lg font-bold text-center ${isDarkMode ? 'text-gray-300' : 'text-[#524641]'}`}>
+                </h3>
+                <p className={`font-[OpenSans] text-lg font-bold text-center ${isDarkMode ? 'text-gray-300' : 'text-[#3B2A22]'}`}>
                     {movie.price}kr
                 </p>
-                <button className={`font-[OpenSans] border px-4 py-2 rounded mt-auto w-fit self-center ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#524641] border-[#524641]'}`}>
+                <button className={`font-[OpenSans] border px-4 py-2 rounded mt-auto w-fit self-center ${isDarkMode ? 'bg-gray-700 text-gray-200 border-gray-500' : 'bg-[#D1B3A7] text-[#3B2A22] border-[#524641]'}`}>
                     Læg i kurv
                 </button>
             </div>
