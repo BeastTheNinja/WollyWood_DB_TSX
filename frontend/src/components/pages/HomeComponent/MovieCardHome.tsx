@@ -13,17 +13,19 @@ export const MovieCardHome = ({ movie }: MovieCardProps) => {
     const isDarkMode = darkModeContext?.isDarkMode ?? false
 
     return (
-        <div className={`flex gap-4 border rounded-lg p-4 max-w-md ${isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-[#D1B3A7]'}`}>
-            <img
-                className="w-52 h-auto object-cover"
-                src={movie.image}
-                alt={movie.name}
-                width={208}
-                height={312}
-                sizes="(max-width: 768px) 100vw, 208px"
-                loading="lazy"
-                decoding="async"
-            />
+        <div className={`flex gap-4 border rounded-lg p-4 max-w-md min-h-80 ${isDarkMode ? 'bg-gray-800 border-gray-600' : 'bg-white border-[#D1B3A7]'}`}>
+            <div className="w-52 aspect-2/3 shrink-0 overflow-hidden">
+                <img
+                    className="w-full h-full object-cover"
+                    src={movie.image}
+                    alt={movie.name}
+                    width={208}
+                    height={312}
+                    sizes="(max-width: 768px) 100vw, 208px"
+                    loading="lazy"
+                    decoding="async"
+                />
+            </div>
             <div className="flex flex-col gap-2">
                 <h3 className={`font-bold text-xl font-[OpenSans] ${isDarkMode ? 'text-gray-200' : 'text-[#3B2A22]'}`}>
                     {movie.name}
